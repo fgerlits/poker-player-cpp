@@ -34,10 +34,10 @@ namespace {
 bool Ranking::isGood() {
 	std::string card1 = cards[0][RANK];
 	std::string card2 = cards[1][RANK];
-std::cerr << "### cards: " << card1 << ", " << card2 << std::endl;
+//std::cerr << "### cards: " << card1 << ", " << card2 << std::endl;
 	int value1 = value(card1);
 	int value2 = value(card2);
-std::cerr << "### card values: " << value1 << ", " << value2 << std::endl;
+//std::cerr << "### card values: " << value1 << ", " << value2 << std::endl;
 
 	if (isFaceCard(card1) && isFaceCard(card2) &&
 			(card1 == "A" || card2 == "A")) {
@@ -52,10 +52,10 @@ std::cerr << "### card values: " << value1 << ", " << value2 << std::endl;
 bool Ranking::isMedium() {
         std::string card1 = cards[0][RANK];
         std::string card2 = cards[1][RANK];
-std::cerr << "### cards: " << card1 << ", " << card2 << std::endl;
+//std::cerr << "### cards: " << card1 << ", " << card2 << std::endl;
         int value1 = value(card1);
         int value2 = value(card2);
-std::cerr << "### card values: " << value1 << ", " << value2 << std::endl;
+//std::cerr << "### card values: " << value1 << ", " << value2 << std::endl;
 
 	if (isFaceCard(card1) && isFaceCard(card2)) {
 		return true;

@@ -57,3 +57,7 @@ int GameState::positionAfterDealer() {
 	int numberOfPlayers = game_state["players"].ToArray().size();
 	return (player_number() - dealer) % numberOfPlayers;
 }
+
+int GameState::small_blind() {
+	return game_state["small_blind"].ToInt();
+}

@@ -16,6 +16,7 @@ class GameState {
 	std::vector<json::Value> otherPlayers();
 	int minimumRaisedBet();
 	int positionAfterDealer();
+	int small_blind();
 
   private:
 	json::Value game_state;
