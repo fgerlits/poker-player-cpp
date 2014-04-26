@@ -30,6 +30,7 @@ int Player::betRequest(json::Value game_state)
 
 	std::vector<json::Value> otherPlayers = gs.otherPlayers();
 	int numberOfNotOut = countNotOut(otherPlayers);
+	int positionAfterDealer = gs.positionAfterDealer();
 
 	int result = 0;
 	if (numberOfNotOut == 1) {
@@ -37,6 +38,8 @@ int Player::betRequest(json::Value game_state)
 	} else if (ranking.isGood()) {
 		result = 10000; //gs.minimumRaisedBet();
 	} else if (ranking.isMedium()) {
+		result = gs.current_buy_in();
+	} else if (positionAfterDealer == 1 || positionAfterDealer == 2) {
 		result = gs.current_buy_in();
 	}
 	std::cerr << "### result: " << result << std::endl;

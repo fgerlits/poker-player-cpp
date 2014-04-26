@@ -51,3 +51,9 @@ int GameState::minimumRaisedBet() {
 	int myBet = myPlayer()["bet"].ToInt();
 	return current_buy_in - myBet + minimum_raise;
 }
+
+int GameState::positionAfterDealer() {
+	int dealer = game_state["dealer"].ToInt();
+	int numberOfPlayers = game_state["players"].ToArray().size();
+	return (player_number() - dealer) % numberOfPlayers;
+}
