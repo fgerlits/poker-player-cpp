@@ -61,3 +61,7 @@ int GameState::positionAfterDealer() {
 int GameState::small_blind() {
 	return game_state["small_blind"].ToInt();
 }
+
+int GameState::myStack() {
+	return myPlayer()["stack"].ToInt();
+}

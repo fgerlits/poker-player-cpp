@@ -32,6 +32,7 @@ int Player::betRequest(json::Value game_state)
 	int numberOfNotOut = countNotOut(otherPlayers);
 	int positionAfterDealer = gs.positionAfterDealer();
 	int badCardLimit = gs.small_blind() * 3;
+	int mediumLimit = gs.myStack() / 4;
 
 	int result = 0;
 	if (ranking.isGood()) {
@@ -40,7 +41,7 @@ int Player::betRequest(json::Value game_state)
 	//	if (numberOfNotOut == 1) {
 	//		result = 10000;
 	//	} else {
-			result = gs.current_buy_in();
+		result = std::min(mediumLimit, gs.current_buy_in());
 	//	}
 	} else if (positionAfterDealer == 1 || positionAfterDealer == 2) {
 		result = std::min(badCardLimit, gs.current_buy_in());

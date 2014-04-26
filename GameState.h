@@ -17,6 +17,7 @@ class GameState {
 	int minimumRaisedBet();
 	int positionAfterDealer();
 	int small_blind();
+	int myStack();
 
   private:
 	json::Value game_state;
