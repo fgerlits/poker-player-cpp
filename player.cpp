@@ -8,7 +8,8 @@ int Player::betRequest(json::Value game_state)
 {
 	//std::cerr << "###> " << game_state.GetType() << std::endl;
 	GameState gs(game_state);
-	return 10000;
+	Ranking ranking = gs.hole_cards_ranking();
+	return ranking.isGood() ? 10000 : 100;
 }
 
 void Player::showdown(json::Value game_state)

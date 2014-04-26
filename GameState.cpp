@@ -12,3 +12,22 @@ int GameState::current_buy_in() {
 	json::Value val = game_state["current_buy_in"];
 	return val.ToInt();
 }
+
+int GameState::player_number() {
+	json::Value val = game_state["in_action"];
+	return val.ToInt();
+}
+
+json::Value GameState::myPlayer() {
+	json::Value val = game_state["players"];
+	return val[player_number()];
+}
+
+json::Value GameState::hole_cards() {
+	json::Value val = myPlayer()["hole_cards"];
+	return val;
+}
+
+Ranking GameState::hole_cards_ranking() {
+	return Ranking(hole_cards());
+}

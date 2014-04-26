@@ -5,8 +5,8 @@ CFLAGS=-c -std=c++11
 
 all: player
 
-player: main.o player.o json.o GameState.o
-	$(CC) main.o player.o json.o GameState.o -o player
+player: main.o player.o json.o GameState.o Ranking.o
+	$(CC) main.o player.o json.o GameState.o Ranking.o -o player
 
 main.o:
 	$(CC) $(CFLAGS) main.cpp
@@ -16,6 +16,10 @@ player.o:
 
 GameState.o: 
 	$(CC) $(CFLAGS) GameState.cpp
+
+Ranking.o: 
+	$(CC) $(CFLAGS) Ranking.cpp
+
 json.o:
 	$(CC) $(CFLAGS) json.cpp
 

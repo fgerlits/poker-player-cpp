@@ -1,5 +1,6 @@
 #include "json.h"
 #include <string>
+#include "Ranking.h"
 
 class GameState {
   public:
@@ -8,6 +9,10 @@ class GameState {
 	//std::vector<Card> holeCards();
 	//std::string player_id();
 	int current_buy_in();
+	int player_number();
+	json::Value myPlayer();
+	json::Value hole_cards();
+	Ranking hole_cards_ranking();
 	
 
   private:
