@@ -11,10 +11,9 @@ namespace {
 		return (status == "active" && stack == 0);
 	}
 
-	bool isActive(const json::Value& player) {
+	bool isLive(const json::Value& player) {
 		std::string status = player["status"];
-		int stack = player["stack"].ToInt();
-		return status == "active";
+		return status != "out";
 	}
 
 	int countAllIns(const std::vector<json::Value> players) {
@@ -27,10 +26,10 @@ namespace {
 		return result;
 	}
 
-	int countActives(const std::vector<json::Value> players) {
+	int countNotOut(const std::vector<json::Value> players) {
 		int result = 0;
 		for (const auto& player : players) {
-			if (isActive(player)) {
+			if (isLive(player)) {
 				++result;
 			}
 		}
@@ -45,13 +44,13 @@ int Player::betRequest(json::Value game_state)
 	Ranking ranking = gs.hole_cards_ranking();
 
 	std::vector<json::Value> otherPlayers = gs.otherPlayers();
-	int numberOfOtherPlayers = countActives(otherPlayers);
 	int numberOfAllIns = countAllIns(otherPlayers);
+	int numberOfNotOut = countNotOut(otherPlayers);
 
 	int result = 0;
 	if (ranking.isGood() && numberOfAllIns < 2) {
 		result = 10000;
-	} else if (numberOfOtherPlayers == 1) {
+	} else if (numberOfNotOut == 1) {
 		result = 10000;
 	}
 	std::cerr << "### result: " << result << std::endl;
