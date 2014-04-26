@@ -33,7 +33,7 @@ int Player::betRequest(json::Value game_state)
 
 	int result = 0;
 	if (ranking.isGood()) {
-		result = gs.minimumRaisedBet();
+		result = 10000; //gs.minimumRaisedBet();
 	} else if (numberOfNotOut == 1) {
 		result = 10000;
 	}
