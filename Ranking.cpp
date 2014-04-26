@@ -36,7 +36,8 @@ bool Ranking::isGood() {
 	int value1 = value(card1);
 	int value2 = value(card2);
 
-	if (isFaceCard(card1) && isFaceCard(card2)) {
+	if (isFaceCard(card1) && isFaceCard(card2) &&
+			(card1 == "A" || card2 == "A")) {
 		return true;
 	} else if (isPair(card1, card2) && value1 >= 8) {
 		return true;
