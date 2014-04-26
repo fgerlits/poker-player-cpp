@@ -13,7 +13,7 @@ class GameState {
 	json::Value myPlayer();
 	json::Value hole_cards();
 	Ranking hole_cards_ranking();
-	
+	std::vector<json::Value> otherPlayers();
 
   private:
 	json::Value game_state;

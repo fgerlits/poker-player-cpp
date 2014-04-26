@@ -31,3 +31,8 @@ json::Value GameState::hole_cards() {
 Ranking GameState::hole_cards_ranking() {
 	return Ranking(hole_cards());
 }
+
+std::vector<json::Value> otherPlayers() {
+	//TODO
+	return std::vector<json::Value>{};
+}

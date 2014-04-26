@@ -18,7 +18,7 @@ bool Ranking::isGood() {
 	json::Value card1 = cards[0];
 	json::Value card2 = cards[1];
 
-	if (isFaceCard(card1[RANK]) || isFaceCard(card2[RANK])) {
+	if (isFaceCard(card1[RANK]) && isFaceCard(card2[RANK])) {
 		return true;
 	} else if (isPair(card1[RANK], card2[RANK])) {
 		return true;
