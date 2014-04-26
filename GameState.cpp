@@ -44,3 +44,10 @@ std::vector<json::Value> GameState::otherPlayers() {
 	}
 	return result;
 }
+
+int GameState::minimumRaisedBet() {
+	int current_buy_in = game_state["current_buy_in"].ToInt();
+	int minimum_raise = game_state["minimum_raise"].ToInt();
+	int myBet = myPlayer()["bet"].ToInt();
+	return current_buy_in - myBet + minimum_raise;
+}

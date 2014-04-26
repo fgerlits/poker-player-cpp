@@ -14,6 +14,7 @@ class GameState {
 	json::Value hole_cards();
 	Ranking hole_cards_ranking();
 	std::vector<json::Value> otherPlayers();
+	int minimumRaisedBet();
 
   private:
 	json::Value game_state;
