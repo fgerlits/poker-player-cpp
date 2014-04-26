@@ -8,7 +8,7 @@ int Player::betRequest(json::Value game_state)
 {
 	//std::cerr << "###> " << game_state.GetType() << std::endl;
 	GameState gs(game_state);
-	return gs.current_buy_in();
+	return 10000;
 }
 
 void Player::showdown(json::Value game_state)
