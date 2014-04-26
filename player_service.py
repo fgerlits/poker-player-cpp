@@ -4,7 +4,8 @@ import json
 import os
 import BaseHTTPServer
 
-HOST_NAME = 'localhost'
+HOST_NAME = '0.0.0.0'
+#HOST_NAME = 'localhost'
 PORT_NUMBER = 9300
 
 class PlayerService(BaseHTTPServer.BaseHTTPRequestHandler):
