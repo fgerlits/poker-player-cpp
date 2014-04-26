@@ -32,7 +32,15 @@ Ranking GameState::hole_cards_ranking() {
 	return Ranking(hole_cards());
 }
 
-std::vector<json::Value> otherPlayers() {
-	//TODO
-	return std::vector<json::Value>{};
+std::vector<json::Value> GameState::otherPlayers() {
+	json::Array players = game_state["players"].ToArray();
+	int myId = player_number();
+	std::vector<json::Value> result{};
+	for (const auto& player : players) {
+		int id = player["id"].ToInt();
+		if (id != myId) {
+			result.push_back(player);
+		}
+	}
+	return result;
 }
