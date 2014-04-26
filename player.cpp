@@ -2,7 +2,7 @@
 #include "GameState.h"
 #include <iostream>
 
-const char* Player::VERSION = "1.2";
+const char* Player::VERSION = "1.3";
 
 namespace {
 	bool isLive(const json::Value& player) {
@@ -32,10 +32,12 @@ int Player::betRequest(json::Value game_state)
 	int numberOfNotOut = countNotOut(otherPlayers);
 
 	int result = 0;
-	if (ranking.isGood()) {
-		result = 10000; //gs.minimumRaisedBet();
-	} else if (numberOfNotOut == 1) {
+	if (numberOfNotOut == 1) {
 		result = 10000;
+	} else if (ranking.isGood()) {
+		result = 10000; //gs.minimumRaisedBet();
+	} else if (ranking.isMedium()) {
+		result = gs.current_buy_in();
 	}
 	std::cerr << "### result: " << result << std::endl;
 	return result;
