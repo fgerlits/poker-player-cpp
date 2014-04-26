@@ -20,7 +20,7 @@ bool Ranking::isGood() {
 
 	if (isFaceCard(card1[RANK]) || isFaceCard(card2[RANK])) {
 		return true;
-	} else if (isPair(card1[RANK], card2[RANK]) {
+	} else if (isPair(card1[RANK], card2[RANK])) {
 		return true;
 	} else {
 		return false;
